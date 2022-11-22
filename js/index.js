@@ -8,6 +8,7 @@ for (let i = 0; i < allKeys; i++) {
 
 document.addEventListener("keypress", function (event) {
   sound(event.key);
+  Animation(event.key)
 });
 
 function sound(key) {
@@ -47,4 +48,10 @@ function sound(key) {
     default:
       break;
   }
+}
+
+function Animation(currKey){
+  let playedKey = document.querySelector("."+currKey);
+  playedKey.classList.add("playing");
+  setTimeout(()=>{playedKey.classList.remove("playing")},100)
 }
